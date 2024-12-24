@@ -1,0 +1,115 @@
+{% extends "base.html" %} {% block title %}Data Scraper{% endblock %} {% block
+content %}
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-1"
+  class="sphere-1"
+  height="150px"
+  width="150px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-2"
+  class="sphere-2"
+  height="200px"
+  width="200px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-3"
+  class="sphere-3"
+  height="250px"
+  width="250px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-4"
+  class="sphere-4"
+  height="110px"
+  width="110px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-5"
+  class="sphere-5"
+  height="190px"
+  width="190px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-6"
+  class="sphere-6"
+  height="175px"
+  width="175px"
+/>
+<form method="POST">
+  <img class="form-logo" src="../static/images/logo.png" alt="logo" />
+  <h3 align="center">Data Scraper</h3>
+  <div class="form-group">
+    <label for="query">Query</label>
+    <input
+      type="query"
+      class="form-control"
+      id="quey"
+      name="query"
+      placeholder="Enter the keyword or location to search for"
+    />
+  </div>
+  <div class="form-group">
+    <label for="latitude">Location</label>
+    <input
+      type="location"
+      class="form-control"
+      id="location"
+      name="location"
+      placeholder="Specify the place to start the search from (optional)"
+    />
+  </div>
+  <div class="form-group">
+    <label for="radius">Radius</label>
+    <input
+      type="radius"
+      class="form-control"
+      id="radius"
+      name="radius"
+      placeholder="Enter the search radius in kilometers (optional)"
+    />
+  </div>
+  <div class="form-group">
+    <label for="limit">Limit</label>
+    <input
+      type="limit"
+      class="form-control"
+      id="limit"
+      name="limit"
+      placeholder="Max number of rows for the scraped data (optional)"
+    />
+  </div>
+  <div class="form-group">
+    <label for="filename">File Name</label>
+    <input
+      type="filename"
+      class="form-control"
+      id="filename"
+      name="filename"
+      placeholder="Enter file name for the scraped data"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">File Type</label>
+    <select
+      class="form-select form-control"
+      aria-label="Disabled select example"
+      type="filetype"
+      id="filetype"
+      name="filetype"
+    >
+      <option value="default" selected>Please select a file format</option>
+      <option value="Excel">Excel (.xlsx)</option>
+      <option value="CSV">Comma Seperated Values (.csv)</option>
+    </select>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Scrape</button>
+</form>
+{% endblock %}

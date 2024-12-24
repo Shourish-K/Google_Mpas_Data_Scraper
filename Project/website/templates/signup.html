@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-1"
+  class="sphere-1"
+  height="150px"
+  width="150px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-2"
+  class="sphere-2"
+  height="200px"
+  width="200px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-3"
+  class="sphere-3"
+  height="250px"
+  width="250px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-4"
+  class="sphere-4"
+  height="110px"
+  width="110px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-5"
+  class="sphere-5"
+  height="190px"
+  width="190px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-6"
+  class="sphere-6"
+  height="175px"
+  width="175px"
+/>
+<form method="POST">
+  <img class="form-logo" src="../static/images/logo.png" alt="logo" />
+  <h3 align="center">Sign Up</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      name="firstName"
+      placeholder="Enter first name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      name="lastName"
+      placeholder="Enter last name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="confirmPassword"
+      name="confirmPassword"
+      placeholder="Confirm password"
+    />
+  </div>
+  <div class="form-group">
+    <label for="firstName">Default Location</label>
+    <input
+      type="text"
+      class="form-control"
+      id="defaultLocation"
+      name="defaultLocation"
+      placeholder="Enter default location"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Search History{% endblock %} {% block
+content %}
+<h3 align="center">Search History</h3>
+<br />
+<br />
+<div class="table-container">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Sr no.</th>
+        <th>Keyword</th>
+        <th>Geo bias</th>
+        <th>Number of results</th>
+        <th>Date created</th>
+        <th>File</th>
+        <th>Data Analysis</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if not user.search_history %}
+      <tr>
+        <td colspan="7" style="text-align: center">
+          No Searches performed yet!
+        </td>
+      </tr>
+      {% else %} {% for history in user.search_history %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ history.search }}</td>
+        <td>{{ history.geo_bias }}</td>
+        <td>{{ history.number_of_results }}</td>
+        <td>{{ history.date_created }}</td>
+        <td><a href="{{ history.path }}" download>Download</a></td>
+        <td><a href="graph/{{ history.id }}">Analysis</a></td>
+      </tr>
+      {% endfor %} {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

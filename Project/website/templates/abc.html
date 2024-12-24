@@ -1,0 +1,148 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<h1
+  style="
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    margin-left: -20px;
+    font-size: 70px;
+  "
+>
+  Data Analysis
+</h1>
+<div class="glassmorphism geoBiasDiv">
+  <h1>Distance from Geo Bias ({{ name }})</h1>
+  <canvas id="distanceChart" width="700" height="300">
+    <script>
+      var ctx = document.getElementById("distanceChart");
+      var config = {
+        type: "bar",
+        data:{
+          labels: {{ geo_bias_labels | safe }},
+          datasets: [
+          {
+            label: "Number of results per distance in Meter(s) distance from the geo bias",
+            data: {{ geo_bias_values | safe }},
+            fill:false,
+            borderColor: "rgba(74, 108, 181, 0.7)",
+            hoverBorderColor: "rgba(74, 90, 130, 0.5)",
+            borderWidth: 1,
+            lineTension: 0.1
+          }
+          ]
+        },
+        options: {
+          responsive: false,
+          backgroundColor: "rgba(74, 108, 181, 0.5)",
+          hoverBackgroundColor: "rgba(74, 90, 130, 0.5)",
+          scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: { // To format the scale label
+                    display: true,
+                    labelString: 'X axis name',
+                    fontColor: '#000000',
+                    fontSize: 10
+                },
+                ticks: {
+                    fontColor: "black", // To format the ticks, coming on the axis/labels which we are passing
+                    fontSize: 14
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Y axis name',
+                    fontColor: '#000000',
+                    fontSize: 10
+                },
+                ticks: {
+                    fontColor: "black",
+                    fontSize: 14
+                }
+            }]
+        }
+        }
+      }
+      var distanceChart = new Chart(ctx, config);
+    </script>
+  </canvas>
+  <h4>Mean:</h4>
+  <p>{{ geo_bias_mean }} m</p>
+  <br />
+  <h4>Maximum:</h4>
+  <p>{{ geo_bias_max }} m</p>
+  <br />
+  <h4>Minimum:</h4>
+  <p>{{ geo_bias_min }} m</p>
+</div>
+
+<div class="glassmorphism geoBiasDiv" style="margin-top: 100px">
+  <h1>Categories ({{ name }})</h1>
+  <canvas id="categoryChart" width="700" height="300">
+    <script>
+      var ctx = document.getElementById("categoryChart");
+      var config = {
+        type: "bar",
+        data:{
+          labels: {{ category_labels | safe }},
+          datasets: [
+          {
+            label: "Number of category from results",
+            data: {{ category_values | safe }},
+            fill:false,
+            borderColor: "rgba(74, 108, 181, 0.7)",
+            hoverBorderColor: "rgba(74, 90, 130, 0.5)",
+            borderWidth: 1,
+            lineTension: 0.1
+          }
+          ]
+        },
+        options: {
+          responsive: false,
+          backgroundColor: "rgba(74, 108, 181, 0.5)",
+          hoverBackgroundColor: "rgba(74, 90, 130, 0.5)",
+          scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: { // To format the scale label
+                    display: true,
+                    labelString: 'X axis name',
+                    fontColor: '#000000',
+                    fontSize: 10
+                },
+                ticks: {
+                    fontColor: "black", // To format the ticks, coming on the axis/labels which we are passing
+                    fontSize: 14
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Y axis name',
+                    fontColor: '#000000',
+                    fontSize: 10
+                },
+                ticks: {
+                    fontColor: "black",
+                    fontSize: 14
+                }
+            }]
+        }
+        }
+      }
+      var categoryChart = new Chart(ctx, config);
+    </script>
+  </canvas>
+  <h4>Most:</h4>
+  <p>{{ category_labels[0] }}</p>
+  <br />
+  <h4>Least:</h4>
+  <p>{{ category_labels[-1] }}</p>
+</div>
+
+{% endblock %}

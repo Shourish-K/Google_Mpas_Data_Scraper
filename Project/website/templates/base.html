@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="../static/images/favicon.ico" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img src="../static/images/logo.png" width="208px" height="85px" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item nav-direct">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown nav-direct">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/data-scraper">Data Scraper</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/search-history"
+                  >Search History</a
+                >
+              </div>
+            </li>
+            <li class="nav-item logout-btn">
+              <a class="nav-link nav-link-color" href="/logout">Logout</a>
+            </li>
+            <li "nav-item">
+              <div class="user-login">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png"
+                  alt="user login"
+                  style="width: 25px; height: 25px"
+                />
+                <p class="username">{{user.first_name}} {{user.last_name}}</p>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item nav-btn">
+              <a class="nav-link nav-link-color" href="/login">Login</a>
+            </li>
+            <li class="nav-item nav-btn">
+              <a class="nav-link nav-link-color" href="/sign-up">Sign Up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    "error" %}
+    <div
+      class="alert alert-error-message alert-dismissable fade show"
+      role="alert"
+    >
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% elif category == "info" %}
+    <div
+      class="alert alert-info-message alert-dismissable fade show"
+      role="alert"
+    >
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% elif category == "warning" %}
+    <div
+      class="alert alert-warning-message alert-dismissable fade show"
+      role="alert"
+    >
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div
+      class="alert alert-success-message alert-dismissable fade show"
+      role="alert"
+    >
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <br />
+    <br />
+    <br />
+    <div class="container">{% block content %} {% endblock %}</div>
+    <br />
+    <br />
+    <br />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='../static/javascript/script.js') }}"
+    ></script>
+
+    <footer>
+      <section>
+        <section class="footer-text">
+          <img src="../static/images/logo.png" alt="logo" class="footer-logo" />
+          <h2>We Scrape Data!</h2>
+          <p>
+            Maps Scraper is a website where you can get data related to a place
+            instantly by giving in few attributes. With the help of the user
+            friendly forms we can export the data into Excel and CSV formats.
+          </p>
+        </section>
+        <section class="footer-icons">
+          <a href="https://www.instagram.com/"
+            ><img
+              src="../static/images/instagram.png"
+              alt="instagram"
+              class="footer-icon"
+          /></a>
+          <a href="https://twitter.com/explore"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/145/145812.png"
+              alt="twitter"
+              class="footer-icon"
+          /></a>
+          <a href="https://www.facebook.com/"
+            ><img
+              src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
+              alt="facebook"
+              class="footer-icon"
+          /></a>
+        </section>
+        <p style="color: white">&copy; Maps Scraper</p>
+      </section>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 class="about-title" style="color: white; text-shadow: 0 0 2px black">
+  <u>About Maps Scraper</u>
+</h1>
+<div class="about">
+  <img src="../static/images/google-maps-satellite.jpg" alt="maps" />
+  <div class="about-info">
+    <p class="about-text">
+      Data scraping is a technique where a computer program extracts data from
+      human-readable output coming from another program. Our Maps Data Scraper
+      extracts data using the Fuzzy Search API. The main aim of the application
+      is to extract the data as quickly and efficiently as possible
+    </p>
+  </div>
+</div>
+<hr class="divider" />
+<h1 class="features-title">Features</h1>
+<div class="features glassmorphism">
+  <div class="feature">
+    <img
+      src="../static/images/search.gif"
+      alt="search by keyword"
+      class="feature-icon"
+    />
+    <h3 class="feature-title">Search Place by Keyword</h3>
+    <p class="feature-paragraph">
+      Search data by simply providing a query string and get instant feedback.
+    </p>
+  </div>
+  <div class="feature">
+    <img
+      src="../static//images/compass.gif"
+      alt="search by place"
+      class="feature-icon"
+    />
+    <h3 class="feature-title">Search Place by Location</h3>
+    <p class="feature-paragraph">
+      Use the place as an identifer in order to get POVs near it
+    </p>
+  </div>
+  <div class="feature">
+    <img
+      src="../static/images/download.gif"
+      alt="download csv excel"
+      class="feature-icon"
+    />
+    <h3 class="feature-title">Extract Data to Excel and CSV</h3>
+    <p class="feature-paragraph">
+      Dowload Word and Excel with just one click. conveniently stored in the
+      search history for future access.
+    </p>
+  </div>
+</div>
+<hr class="divider" />
+<h1 class="services-title">Services</h1>
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="face face1">
+      <div class="content">
+        <img
+          src="../static/images/search.png"
+          alt="data scraper"
+          class="card-icon"
+        />
+        <h3>Maps Data Scraper</h3>
+      </div>
+    </div>
+    <div class="face face2">
+      <div class="content">
+        <p>
+          A seamless tool which provides easy map scraping solutions. Provides
+          data in Excel and CSV format.
+        </p>
+        <center>
+          <a href="/data-scraper" class="btn-style">Lets Go!</a>
+        </center>
+      </div>
+    </div>
+  </div>
+  <div class="grid-item">
+    <div class="face face1">
+      <div class="content">
+        <img
+          src="../static/images/history.png"
+          alt="data scraper"
+          class="card-icon"
+        />
+        <h3>Search History</h3>
+      </div>
+    </div>
+    <div class="face face2">
+      <div class="content">
+        <p>
+          Logs all the data searched, and stores the data files. Easy download
+          with a single click.
+        </p>
+        <center>
+          <a href="search-history" class="btn-style">Browse History</a>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

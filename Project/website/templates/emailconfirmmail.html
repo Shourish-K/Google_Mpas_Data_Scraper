@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/emailconfirmstyles.css" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        width: 900px;
+      }
+
+      .logo {
+        width: 85px;
+        height: 110px;
+        padding: 30px 0px 5px 30px;
+      }
+
+      .container {
+        background-color: #dfdfdfa9;
+        margin: 50px;
+        padding: 50px 0px;
+        border-radius: 10px;
+      }
+
+      .emailBanner {
+        background-color: rgb(88, 181, 218);
+        margin: 0px 50px 0px 50px;
+        border-top: 2px dashed darkblue;
+        border-left: 2px dashed darkblue;
+        border-right: 2px dashed darkblue;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .body {
+        background-color: rgb(255, 255, 255);
+        margin: 0px 50px 50px 50px;
+        border-bottom: 2px dashed darkblue;
+        border-left: 2px dashed darkblue;
+        border-right: 2px dashed darkblue;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding-bottom: 75px;
+      }
+
+      .emailVerificationLogo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .btn-style {
+        position: relative;
+        color: white !important;
+        background-color: rgb(0, 110, 255);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 20px 50px;
+        font-size: 25px;
+      }
+
+      .btn-style:hover {
+        background-color: rgb(4, 84, 189);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <div class="emailBanner">
+          <center>
+            <img
+              src="https://i.ibb.co/SyMNKvs/radar.gif"
+              alt="Email Verification"
+              class="emailVerificationLogo"
+              style="border-radius: 50%"
+            />
+          </center>
+        </div>
+        <div class="body">
+          <form method="GET">
+            <h2>
+              <center
+                style="
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 50px;
+                  padding-top: 50px;
+                "
+              >
+                Email Confirmation
+              </center>
+            </h2>
+            <br />
+            <br />
+            <br />
+            <p
+              style="
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 30px;
+                padding: 0px 50px 50px 50px;
+              "
+            >
+              Hey {{ name }}, you're almost ready to start enjoying Maps
+              Scraper. Simply click the button below to verify your email.
+            </p>
+            <center>
+              <a href="{{ confirm_link }}" class="btn-style">Confirm</a>
+            </center>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

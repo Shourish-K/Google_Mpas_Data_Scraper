@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<canvas id="distanceChart" width="700" height="300">
+  <script>
+    var ctx = document.getElementById("distanceChart");
+    var config = {
+      type: "bar",
+      data:{
+        labels: {{ labels | safe }},
+        datasets: [
+        {
+          label: "Number of results per distance in Km(s) category from the geo bias",
+          data: {{ values | safe }},
+          fill:false,
+          borderColor: "rgb(75, 192, 192)",
+          lineTension: 0.1
+        }
+        ]
+      },
+      options: {
+        responsive: false
+      }
+    }
+    var distanceChart = new Chart(ctx, config);
+  </script>
+</canvas>
+{% endblock %}

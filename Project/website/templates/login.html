@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-1"
+  class="sphere-1"
+  height="150px"
+  width="150px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-2"
+  class="sphere-2"
+  height="200px"
+  width="200px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-3"
+  class="sphere-3"
+  height="250px"
+  width="250px"
+/>
+<img
+  src="https://hype4.academy/_next/static/media/oval.d7781d8a.svg"
+  alt="sphere-4"
+  class="sphere-4"
+  height="110px"
+  width="110px"
+/>
+<form method="POST">
+  <img class="form-logo" src="../static/images/logo.png" alt="logo" />
+  <h3 align="center">Login</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}
